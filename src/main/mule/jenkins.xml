@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="bb0b4ee1-de99-4d07-ba93-eb2e0cbd95a1" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="jenkinsFlow" doc:id="692c6237-ca89-4651-b42e-77a4fdad23ee" >
+		<http:listener doc:name="Listener" doc:id="df53e1de-cedc-4f1d-a597-00b76bb1cafc" config-ref="HTTP_Listener_config" path="/jen"/>
+		<set-payload value="#['jenkins pipeline']" doc:name="Set Payload" doc:id="2757302f-739d-4fde-9b6b-5e3cf323b7eb" />
+	</flow>
+</mule>
